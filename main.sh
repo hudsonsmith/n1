@@ -6,8 +6,8 @@ echo "${SCRIPT_DIR}"
 # Dynamically load the libs even if in dev mode.
 if [[ "${SCRIPT_DIR}" == "${HOME}/bin" ]]; then
     # Source the entire library.
-    source ~/omb/src/*
-    THEME_DIR="$HOME/omb/themes"
+    source ~/.omb/src/*
+    THEME_DIR="$HOME/.omb/themes"
 else
     source ./src/*
     THEME_DIR="./themes"
