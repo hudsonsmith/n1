@@ -11,11 +11,14 @@ function main() {
     cp main.sh ~/bin/omb
 
     mkdir -p ~/omb/themes
-    cp themes/* ~/omb/themes
+    cp themes/* ~/omb/themes/
 
     mkdir -p ~/omb/src
     cp src/* ~/omb/src
 
     # Add the alias for the source omb so that a omb can add a new PS1.
-    echo 'alias omb="source ~/bin/omb"'
+    echo 'alias omb="source ~/bin/omb"' >> ~/.bashrc
+    source ~/.bashrc
 }
+
+main
