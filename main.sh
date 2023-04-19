@@ -4,7 +4,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 echo "${SCRIPT_DIR}"
 
 # Dynamically load the libs even if in dev mode.
-if [[ "${SCRIPT_DIR}" == "${HOME}/bin" ]]; then
+if [[ "${SCRIPT_DIR}" == "${HOME}/.omb" ]]; then
     # Source the entire library.
     source ~/.omb/src/*
     THEME_DIR="$HOME/.omb/themes"
@@ -21,6 +21,10 @@ function main() {
             set)
                 # Pass the theme dir and the name of the script to the api.
                 src::load_theme "${THEME_DIR}" "${2}"
+                ;;
+            
+            list)
+                src::list_themes "${THEME_DIR}"
                 ;;
             
             *)

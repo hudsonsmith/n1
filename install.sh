@@ -1,26 +1,43 @@
 #! /usr/bin/env bash
 
-function main() {
-    # if [[ ! ":$PATH:" == *"$HOME/bin"* ]]; then
-    #     echo "Adding ~/bin to path"
-    #     echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
-    # fi
+source ./installer_utils/*
 
-    # Add the executable.
-    mkdir -p ~/bin
-    cp main.sh ~/bin/omb
 
-    mkdir -p ~/.omb/themes
-    cp themes/* ~/.omb/themes/
+util::alert "Creating directories..."
 
-    mkdir -p ~/.omb/src
-    cp src/* ~/.omb/src
+# Add the executable.
+mkdir -p ~/.omb
+cp main.sh ~/.omb/omb
 
-    mkdir -p ~/.omb/prompt_tools
-    cp prompt_tools/* ~/.omb/prompt_tools/
+mkdir -p ~/.omb/themes
+cp themes/* ~/.omb/themes/
 
-    # Add the alias for the source omb so that a omb can add a new PS1.
-    echo 'alias omb="source ~/bin/omb"' >> ~/.bashrc
-}
+mkdir -p ~/.omb/src
+cp src/* ~/.omb/src
 
-main
+mkdir -p ~/.omb/prompt_tools
+cp prompt_tools/* ~/.omb/prompt_tools/
+
+
+alias_text='alias omb="source ~/.omb/omb"'
+alias_count=$(cat ~/.bashrc | grep "${alias_text}" | wc -l)
+
+# Check if the alias already exists, if not, create it.
+if (( $alias_count <= 0 )); then
+    # Use `source` so that a new PS1 can be applied immediately.
+    util::alert "Adding alias to ~/.bashrc"
+    echo "${alias_text}" >> ~/.bashrc
+
+else
+    util::alert "Alias already exists"
+fi
+
+
+# If a default theme is not set, set it.
+if [[ $(cat ~/.bashrc | grep "omb set" | wc -l) != "1" ]]; then
+    util::alert "Adding default theme"
+    echo "omb set arrow" >> ~/.bashrc
+
+else
+    util::alert "Default theme already set"
+fi

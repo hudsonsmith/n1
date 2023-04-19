@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+
+reset="\033[0m"
+bold="\033[1m"
+italic="\033[3m"
+underline="\033[4m"
+blinking="\033[5m"
+reverse="\033[7m"
+black="\033[30m"
+white="\033[97m"
+red="\033[31m"
+green="\033[32m"
+brown="\033[33m"
+blue="\033[34m"
+purple="\033[35m"
+cyan="\033[36m"
+grey="\033[37m"
+yellow="\033[1;33m"
