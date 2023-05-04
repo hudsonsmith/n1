@@ -15,7 +15,7 @@ function main() {
 
   echo "\n\nThanks for installing Oh My Bash!"
   echo -e "\nRun 'source ~/.bashrc' to finish the install."
-  echo "Run 'omb' to see how to use this tool."
+  echo "Run 'n1' to see how to use this tool."
 }
 
 main

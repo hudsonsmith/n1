@@ -5,7 +5,7 @@ function src::load_theme() {
     # ${2} = THEME_NAME
     
     if [[ "$#" < 2 ]]; then
-        echo "Usage: omb set {theme}"
+        echo "Usage: n1 set {theme}"
         exit 1
     fi
 

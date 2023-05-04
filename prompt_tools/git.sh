@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-source ~/.omb/prompt_tools/colors.sh
+source ~/.n1/prompt_tools/colors.sh
 
 
 function git_stats() {
