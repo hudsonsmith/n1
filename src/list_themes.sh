@@ -5,8 +5,6 @@ function src::list_themes() {
     # ${1}: The directory with all the themes.
 
     # Draw a <hr> line across
-    src::draw_banner
-
     local last_ps1="${PS1}"
     local theme_count=$(/usr/bin/env ls "${1}" | wc -l)
 

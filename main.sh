@@ -28,9 +28,9 @@ fi
 
 function main() {
     if (( $# <= 0 )); then
-        draw_banner
+        src::draw_banner
 
-        echo "Error: No arguments provided"
+        echo -e "n1 by ${cyan}${italic}${bold}@hudsonsmith${reset}"
         echo ""
         echo "set [theme] # Loads a theme"
         echo "list        # Lists all themes"

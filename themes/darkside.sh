@@ -48,4 +48,4 @@ git_stats () {
 }
 
 export PS1="$cyan┌──[$reset $cyan\u@\h$reset$red in$reset $green\w$reset$cyan ]$reset$cyan($reset$red\T$reset$cyan)$reset$yellow\$(__git_ps1) $reset\$(git_stats)\n$cyan└─❯$reset "
-preview="$cyan┌──[$reset ${cyan}smith@matrix$reset$red in$reset $green/home/smith$reset$cyan ]$reset$cyan($reset${red}07:25:19$reset$cyan)$reset$yellow(main) $reset(${green}2~${reset} ${red}5-${reset} ${purple}3!})\n$cyan└─❯$reset "
+preview="$cyan┌──[$reset ${cyan}smith@matrix$reset$red in$reset $green/home/smith$reset$cyan ]$reset$cyan($reset${red}07:25:19$reset$cyan)$reset$yellow (main) $reset${green}2~${reset} ${red}5-${reset} ${purple}3!${reset}\n$cyan└─❯$reset "
