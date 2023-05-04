@@ -16,7 +16,7 @@ function src::list_themes() {
         src::draw_hr
         echo ""
         echo -e "${green}${bold}${italic}${file}${reset}"
-        echo -e "${PS1}"
+        echo -e "${preview}"
         echo ""
     done
 
