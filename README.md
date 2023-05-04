@@ -1,2 +1,12 @@
-# oh_my_bash
-Theming for the terminal.
+```
+███╗   ██╗ ██╗
+████╗  ██║███║
+██╔██╗ ██║╚██║
+██║╚██╗██║ ██║
+██║ ╚████║ ██║
+╚═╝  ╚═══╝ ╚═╝
+    
+"Simplicity is efficiency"
+```
+
+Currently in beta testing.
