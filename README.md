@@ -16,7 +16,7 @@
 Run this command to install:
 
 ```bash
-curl -s https://raw.githubusercontent.com/hudsonsmith/n1/main/web_installer.sh | bash; source ~/.bashrc; clear;
+curl -s https://raw.githubusercontent.com/hudsonsmith/n1/main/web_installer/install.sh | bash; source ~/.bashrc; clear; curl -s https://raw.githubusercontent.com/hudsonsmith/n1/main/web_installer/greeting.sh | bash
 ```
 
 ## Usage
