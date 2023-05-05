@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+# The file that gets pasted to the user's terminal to install.
+
 function main() {
   git clone https://github.com/hudsonsmith/oh_my_bash.git /tmp/oh_my_bash
 
