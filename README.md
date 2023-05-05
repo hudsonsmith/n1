@@ -11,4 +11,4 @@
 
 Theme your bash shell the easy way with n1.
 
-Currently in beta testing.
+![Gif of using n1 to change themes](./readme_content/demo.gif)

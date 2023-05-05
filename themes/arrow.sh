@@ -1,7 +1,5 @@
 #! /usr/bin/env bash
 
-source ~/.n1/prompt_tools/*
-
 user="${USER:0:1}"
 hostname="${HOSTNAME:0:1}"
 
