@@ -3,6 +3,8 @@
 source ./installer_utils/*
 
 
+touch ~/.bashrc
+
 util::alert "Creating directories..."
 
 # Add the executable.
