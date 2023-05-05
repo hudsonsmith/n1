@@ -1,14 +1,10 @@
-```
-███╗   ██╗ ██╗
-████╗  ██║███║
-██╔██╗ ██║╚██║
-██║╚██╗██║ ██║
-██║ ╚████║ ██║
-╚═╝  ╚═══╝ ╚═╝
-    
-"Simplicity is efficiency"
-```
+<div align="center">
 
-Theme your bash shell the easy way with n1.
+# `N1`, better terminal prompts.
+
+</div>
 
 ![Gif of using n1 to change themes](./readme_content/demo.gif)
+
+
+
