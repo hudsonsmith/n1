@@ -5,9 +5,11 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 function source_all() {
     # ${1}: The directory to source all the files from.
 
-    for file in $(ls "${1}"); do
-        source "${1}/${file}"
-    done
+    if [[ -d "${1}" ]]; then
+      for file in "${1}"/*; do
+        [[ -f "$file" ]] && source "$file"
+      done
+    fi
 }
 
 # Dynamically load the libs even if in dev mode.

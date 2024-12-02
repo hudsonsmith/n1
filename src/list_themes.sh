@@ -9,7 +9,7 @@ function src::list_themes() {
     local theme_count=$(/usr/bin/env ls "${1}" | wc -l)
 
     for file in $(ls ${1}); do
-        source ${1}/${file}
+        source "${1}/${file}"
 
         src::draw_hr
         echo ""
