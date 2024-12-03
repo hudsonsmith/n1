@@ -7,6 +7,7 @@ function setup() {
     [[ -d "/tmp/oh_my_bash/" ]] && rm -rf /tmp/oh_my_bash/
 
     git clone https://github.com/hudsonsmith/oh_my_bash.git /tmp/oh_my_bash
+    cd /tmp/oh_my_bash
 
     for file in ./installer_utils/*.sh; do
         [[ -f "$file" ]] && source "$file"
