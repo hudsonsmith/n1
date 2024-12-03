@@ -53,7 +53,7 @@ function cleanup() {
 
 function intro() {
     /usr/bin/env clear
-    ${INSTALLED_PROGRAM}
+    source ${INSTALLED_PROGRAM}
 }
 
 setup
