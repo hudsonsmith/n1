@@ -22,6 +22,7 @@ function copy_files() {
 
     util::alert "Creating directories..."
 
+    rm -rf "${INSTALLED_PATH}"
     mkdir -p "${INSTALLED_PATH}"
     cp main.sh "${INSTALLED_PATH}/n1"
 
