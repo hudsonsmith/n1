@@ -38,6 +38,10 @@ function main() {
         echo "list        # Lists all themes"
     else
         case "${1}" in
+            init)
+                src::init
+                ;;
+
             set)
                 # Pass the theme dir and the name of the script to the api.
                 if [[ -z "${2}" ]]; then

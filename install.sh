@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#! /usr/bin/env bash
 
 set -euo pipefail
 
@@ -40,18 +40,21 @@ function copy_files() {
         util::alert "Adding alias to ~/.bashrc"
         echo "${alias_text}" >> ~/.bashrc
     else
-        util::alert "Alias already exists"
+        util::alert "Alias already exists! :)"
     fi
 
-    if ! grep -Fxq "n1 set arrow" ~/.bashrc; then
+    if ! grep -Fxq "n1 init" ~/.bashrc; then
         util::alert "Adding default theme"
-        echo "n1 set arrow" >> ~/.bashrc
+        echo "n1 init" >> ~/.bashrc
     else
-        util::alert "Default theme already set"
+        util::alert "Command \`n1 init\` already present! :)"
     fi
+
+    cp ./n1.conf "${INSTALLED_PATH}/"
 }
 
 function cleanup() {
+    cd -
     rm -rf /tmp/oh_my_bash
 }
 
