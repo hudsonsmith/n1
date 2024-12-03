@@ -16,7 +16,7 @@
 Run this command to install:
 
 ```bash
-curl -s https://raw.githubusercontent.com/hudsonsmith/n1/main/install.sh | bash; source ~/.bashrc; clear; n1
+curl -s https://raw.githubusercontent.com/hudsonsmith/n1/main/install.sh | bash; source ~/.bashrc; /usr/bin/env clear; ~/.n1/n1
 ```
 
 ## Usage
