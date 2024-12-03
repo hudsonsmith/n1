@@ -7,13 +7,10 @@ function setup() {
     [[ -d "/tmp/oh_my_bash/" ]] && rm -rf /tmp/oh_my_bash/
 
     git clone https://github.com/hudsonsmith/oh_my_bash.git /tmp/oh_my_bash
-    pushd /tmp/oh_my_bash || exit 1
 
     for file in ./installer_utils/*.sh; do
         [[ -f "$file" ]] && source "$file"
     done
-
-    popd
 }
 
 function copy_files() {
