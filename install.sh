@@ -35,7 +35,7 @@ function copy_files() {
     mkdir -p "${INSTALLED_PATH}/prompt_tools"
     cp prompt_tools/* "${INSTALLED_PATH}/prompt_tools/"
 
-    alias_text="alias n1='source ${INSTALLED_PATH}/n1'"
+    alias_text="alias n1='${INSTALLED_PATH}/n1'"
     if ! grep -Fxq "${alias_text}" ~/.bashrc; then
         util::alert "Adding alias to ~/.bashrc"
         echo "${alias_text}" >> ~/.bashrc
@@ -60,7 +60,7 @@ function cleanup() {
 
 function intro() {
     /usr/bin/env clear
-    source ${INSTALLED_PROGRAM}
+    ${INSTALLED_PROGRAM}
 }
 
 setup
