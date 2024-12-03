@@ -8,6 +8,7 @@
 # A shell prompt for evil sith.
 # author: @hudsonsmith
                                                        
+source ~/.n1/prompt_tools/git.sh
 
 git_stats () {
 	if [[ ! $(__git_ps1) ]]; then
