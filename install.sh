@@ -1,45 +1,64 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
-source ./installer_utils/*
+INSTALLED_PATH="$HOME/.n1"
+INSTALLED_PROGRAM="${INSTALLED_PATH}/n1"
 
+function setup() {
+    [[ -d "/tmp/oh_my_bash/" ]] && rm -rf /tmp/oh_my_bash/
 
-touch ~/.bashrc
+    git clone https://github.com/hudsonsmith/oh_my_bash.git /tmp/oh_my_bash
+    pushd /tmp/oh_my_bash || exit 1
 
-util::alert "Creating directories..."
+    for file in ./installer_utils/*.sh; do
+        [[ -f "$file" ]] && source "$file"
+    done
 
-# Add the executable.
-mkdir -p ~/.n1
-cp main.sh ~/.n1/n1
+    popd
+}
 
-mkdir -p ~/.n1/themes
-cp themes/* ~/.n1/themes/
+function copy_files() {
+    echo "Installed Path: ${INSTALLED_PATH}"
+    touch ~/.bashrc
 
-mkdir -p ~/.n1/src
-cp src/* ~/.n1/src
+    util::alert "Creating directories..."
 
-mkdir -p ~/.n1/prompt_tools
-cp prompt_tools/* ~/.n1/prompt_tools/
+    mkdir -p "${INSTALLED_PATH}" || exit 1
+    cp main.sh "${INSTALLED_PATH}/n1"
 
+    mkdir -p "${INSTALLED_PATH}/themes" || exit 1
+    cp themes/* "${INSTALLED_PATH}/themes/" || exit 1
 
-alias_text='alias n1="source ~/.n1/n1"'
-alias_count=$(cat ~/.bashrc | grep "${alias_text}" | wc -l)
+    mkdir -p "${INSTALLED_PATH}/src" || exit 1
+    cp src/* "${INSTALLED_PATH}/src" || exit 1
 
-# Check if the alias already exists, if not, create it.
-if (( $alias_count <= 0 )); then
-    # Use `source` so that a new PS1 can be applied immediately.
-    util::alert "Adding alias to ~/.bashrc"
-    echo "${alias_text}" >> ~/.bashrc
+    mkdir -p "${INSTALLED_PATH}/prompt_tools" || exit 1
+    cp prompt_tools/* "${INSTALLED_PATH}/prompt_tools/" || exit 1
 
-else
-    util::alert "Alias already exists"
-fi
+    alias_text="alias n1='source ${INSTALLED_PATH}/n1'"
+    if ! grep -Fxq "${alias_text}" ~/.bashrc; then
+        util::alert "Adding alias to ~/.bashrc"
+        echo "${alias_text}" >> ~/.bashrc
+    else
+        util::alert "Alias already exists"
+    fi
 
+    if ! grep -Fxq "n1 set arrow" ~/.bashrc; then
+        util::alert "Adding default theme"
+        echo "n1 set arrow" >> ~/.bashrc
+    else
+        util::alert "Default theme already set"
+    fi
+}
 
-# If a default theme is not set, set it.
-if [[ $(cat ~/.bashrc | grep "n1 set" | wc -l) != "1" ]]; then
-    util::alert "Adding default theme"
-    echo "n1 set arrow" >> ~/.bashrc
+function cleanup() {
+    rm -rf /tmp/oh_my_bash
+}
 
-else
-    util::alert "Default theme already set"
-fi
+function intro() {
+    /usr/bin/env clear
+    ${INSTALLED_PROGRAM}
+}
+
+setup
+copy_files
+cleanup
