@@ -5,6 +5,7 @@
 function main() {
   git clone https://github.com/hudsonsmith/oh_my_bash.git /tmp/oh_my_bash
 
+  [[ -d "/tmp/oh_my_bash/" ]] && rm -rf /tmp/oh_my_bash/
   cd /tmp/oh_my_bash
   chmod 755 ./install.sh
 
