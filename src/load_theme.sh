@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 
-[[ -f "./src/db.sh" ]] && source ./src/db.sh
-    \ || [[ -f "~/.n1/src/db.sh" ]] && source ~/.n1/src/db.sh
+[[ -f "./src/db.sh" ]] && source ./src/db.sh || [[ -f ~/.n1/src/db.sh ]] && source ~/.n1/src/db.sh
 
 function src::load_theme() {
     # ${1} = THEME_DIR 
