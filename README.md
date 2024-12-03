@@ -1,6 +1,6 @@
 <div align="center">
 
-# `N1`, better terminal prompts.
+# `N1`, better terminal prompts for bash.
 
 </div>
 
