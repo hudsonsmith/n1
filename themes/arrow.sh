@@ -32,5 +32,5 @@ git_stats () {
 user="${USER:0:1}"
 hostname="${HOSTNAME:0:1}"
 
-export PS1="${reset}${white}${bold}[${cyan}${user}${red}@${cyan}${hostname}${white} ${green}\W${white}] \$(git_stats)${bold}${white}${bold}${red}➜${reset}  "
-preview="${reset}${white}${bold}[${cyan}${user}${red}@${cyan}${hostname}${white}] ${git_stats}${bold}${red}➜${reset}  "
+export PS1="${reset}${white}${bold}[${cyan}${user}${red}@${cyan}${hostname}${white} ${green}\W${white}]$reset$yellow\$(__git_ps1) \$(git_stats)${bold}${white}${bold}${red}➜${reset}  "
+preview="${reset}${white}${bold}[${cyan}${user}${red}@${cyan}${hostname}${white}]$reset$yellow (main) $reset${green}2~${reset} ${red}5-${reset} ${purple}3!${reset}${git_stats}${bold}${red} ➜${reset}  "
