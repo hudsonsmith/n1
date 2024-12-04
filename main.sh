@@ -36,10 +36,10 @@ function main() {
         echo ""
         echo "set [theme] # Loads a theme"
         echo "list        # Lists all themes"
+        echo "update      # Fetch new prompts and get new version changes."
     else
         case "${1}" in
             init)
-                echo "[DEBUG] Calling src::init from main.sh"
                 src::init
                 ;;
 
