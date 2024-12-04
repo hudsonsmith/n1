@@ -29,9 +29,7 @@ function src::load_theme() {
             path="./n1.conf"
         fi
 
-        echo "$(cat "${path}")" > "${path}"
-
-
+        echo "${2}" > "${path}"
     else
         echo "${2}: Theme not found"
     fi
