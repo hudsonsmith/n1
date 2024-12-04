@@ -1,7 +1,5 @@
 #! /usr/bin/env bash
 
-set -euo pipefail
-
 INSTALLED_PATH="$HOME/.n1"
 INSTALLED_PROGRAM="${INSTALLED_PATH}/n1"
 
