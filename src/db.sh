@@ -33,20 +33,17 @@ function src::db::parse_db ()
     DB_DATA=()
 
     # Read the database file line by line
-    while IFS="=" read -r key value; do
-        # Skip empty lines or invalid lines without a key
-        if [[ -z "${key}" || "${key}" =~ ^[[:space:]]*$ ]]; then
-            continue
-        fi
+    while read -r line; do
+        # Trim leading and trailing spaces
+        line=$(echo "$line" | xargs)
 
-        # Debugging to check the key being processed
-        echo "Parsed key: '$key', value: '$value'"
-
-        DB_DATA["$key"]="$value"
+        # Skip empty lines or lines without an '=' character
+        [[ "$line" == *"="* ]] && DB_DATA["${line%%=*}"]="${line#*=}"
     done < "${CURRENT_DB}"
 
     echo "db.parse_db, successfully parsed database: ${CURRENT_DB}"
 }
+
 
 
 # Visualize the database contents
@@ -66,6 +63,8 @@ function src::db::set ()
         return 1
     fi
 
+    echo "Key name: ${1}"
+    echo "Theme name: ${2}"
     DB_DATA["$1"]="$2"
 }
 
@@ -82,6 +81,8 @@ function src::db::save ()
     for key in "${!DB_DATA[@]}"; do
         # Retrieve the value for the current key
         local val="${DB_DATA[$key]}"
+        echo "KEY: ${key}"
+        echo "VALUE: ${val}"
 
         # Ensure neither key nor value is empty
         if [[ -n "${key}" && -n "${val}" ]]; then

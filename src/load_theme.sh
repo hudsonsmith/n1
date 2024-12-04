@@ -20,15 +20,17 @@ function src::load_theme() {
         # Source the theme file.
         source "${1}/${2}.sh"
 
+        local path=""
+
         if [[ -f "~/.n1/n1.conf" ]]; then
-            src::db::connect "~/.n1/n1.conf"
+            path="~/.n1/n1.conf"
 
         elif [[ -f "./n1.conf" ]]; then
-            src::db::connect "./n1.conf"
+            path="./n1.conf"
         fi
 
-        src::db::set "prompt" "${2}"
-        src::db::save
+        echo "$(cat "${path}")" > "${path}"
+
 
     else
         echo "${2}: Theme not found"
