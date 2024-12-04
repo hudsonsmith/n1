@@ -55,6 +55,10 @@ function main() {
             list)
                 src::list_themes "${THEME_DIR}"
                 ;;
+
+            update)
+                [[ -f ~/.n1/install.sh ]] && ~/.n1/install.sh
+                ;;
             
             *)
                 echo "Error: Command not found"
