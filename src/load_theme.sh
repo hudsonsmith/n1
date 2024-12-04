@@ -22,8 +22,8 @@ function src::load_theme() {
 
         local path=""
 
-        if [[ -f "~/.n1/n1.conf" ]]; then
-            path="~/.n1/n1.conf"
+        if [[ -f ~/.n1/n1.conf ]]; then
+            path=~/.n1/n1.conf
 
         elif [[ -f "./n1.conf" ]]; then
             path="./n1.conf"
