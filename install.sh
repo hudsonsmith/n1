@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 
 INSTALLED_PATH="$HOME/.n1"
-INSTALLED_PROGRAM="${INSTALLED_PATH}/n1"
 
 function setup () {
     [[ -d "/tmp/oh_my_bash/" ]] && rm -rf /tmp/oh_my_bash/
@@ -64,7 +63,7 @@ function cleanup () {
 
 function intro () {
     /usr/bin/env clear
-    ${INSTALLED_PROGRAM}
+    ${INSTALLED_PATH}/n1
 }
 
 # If argv prompt is set as dev, install from current repo.
