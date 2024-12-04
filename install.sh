@@ -38,6 +38,8 @@ function copy_files () {
     mkdir -p "${INSTALLED_PATH}/prompt_tools"
     cp prompt_tools/* "${INSTALLED_PATH}/prompt_tools/"
 
+    cp install.sh "${INSTALLED_PATH}/install.sh"
+
     alias_text="alias n1='source ${INSTALLED_PATH}/n1'"
     if ! grep -Fxq "${alias_text}" ~/.bashrc; then
         util::alert "Adding alias to ~/.bashrc"
