@@ -1,6 +1,11 @@
 #! /usr/bin/env bash
 
-source ~/.n1/prompt_tools/colors.sh
+if [[ -f ~/.n1/prompt_tools/colors.sh ]]; then
+    source ~/.n1/prompt_tools/colors.sh
+
+elif [[ -f "$(pwd)/prompt_tools/color.sh" ]]; then
+    source "$(pwd)/prompt_tools/color.sh"
+fi
 
 
 function git_stats() {

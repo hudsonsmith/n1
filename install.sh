@@ -5,7 +5,7 @@ set -euo pipefail
 INSTALLED_PATH="$HOME/.n1"
 INSTALLED_PROGRAM="${INSTALLED_PATH}/n1"
 
-function setup() {
+function setup () {
     [[ -d "/tmp/oh_my_bash/" ]] && rm -rf /tmp/oh_my_bash/
 
     git clone https://github.com/hudsonsmith/oh_my_bash.git /tmp/oh_my_bash
@@ -16,7 +16,13 @@ function setup() {
     done
 }
 
-function copy_files() {
+function setup_dev () {
+    for file in ./installer_utils/*.sh; do
+        [[ -f "$file" ]] && source "$file"
+    done
+}
+
+function copy_files () {
     echo "Installed Path: ${INSTALLED_PATH}"
     touch ~/.bashrc
 
@@ -53,16 +59,17 @@ function copy_files() {
     cp ./n1.conf "${INSTALLED_PATH}/"
 }
 
-function cleanup() {
+function cleanup () {
     cd -
     rm -rf /tmp/oh_my_bash
 }
 
-function intro() {
+function intro () {
     /usr/bin/env clear
     ${INSTALLED_PROGRAM}
 }
 
-setup
+# If argv prompt is set as dev, install from current repo.
+[[ "${1}" == "dev" ]] && setup_dev || setup
 copy_files
 cleanup

@@ -39,6 +39,7 @@ function main() {
     else
         case "${1}" in
             init)
+                echo "[DEBUG] Calling src::init from main.sh"
                 src::init
                 ;;
 

@@ -1,6 +1,11 @@
 #! /usr/bin/env bash
 
-[[ -f "./src/db.sh" ]] && source ./src/db.sh || [[ -f ~/.n1/src/db.sh ]] && source ~/.n1/src/db.sh
+if [[ -f "$(pwd)/src/db.sh" ]]; then
+    source "$(pwd)/src/db.sh"
+
+elif [[ -f ~/.n1/src/db.sh ]]; then
+    source ~/.n1/src/db.sh
+fi
 
 function src::load_theme() {
     # ${1} = THEME_DIR 
@@ -16,14 +21,14 @@ function src::load_theme() {
         source "${1}/${2}.sh"
 
         if [[ -f "~/.n1/n1.conf" ]]; then
-            db::connect "~/.n1/n1.conf"
+            src::db::connect "~/.n1/n1.conf"
 
         elif [[ -f "./n1.conf" ]]; then
-            db::connect "./n1.conf"
+            src::db::connect "./n1.conf"
         fi
 
-        src::db::set prompt "${THEME_NAME}"
-        src::db:save
+        src::db::set "prompt" "${2}"
+        src::db::save
 
     else
         echo "${2}: Theme not found"
